@@ -1,0 +1,172 @@
+<!-- ********************************************************************template for the import data of the ps -->
+
+<?php
+// namespace App\Console\Commands;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB; //  Import the DB facade
+
+class ImportComputers extends Command
+{
+    protected $signature = 'import:computers';
+    protected $description = 'Import computers from a CSV file';
+
+    public function handle()
+    {
+        $filePath = storage_path('app/p1adminbldg.csv');
+
+        if (!file_exists($filePath)) {
+            $this->error('File not found: ' . $filePath);
+            return;
+        }
+
+        $file = fopen($filePath, 'r');
+        $header = fgetcsv($file); // Skip header row
+
+        while (($row = fgetcsv($file, 1000, ',')) !== false) {
+            $data = array_map(fn($value) => trim($value) === "" ? "" : trim($value), $row);
+
+            DB::table('p1adminbldg')->insert([
+                'department'     => $data[0] ?? "",
+                'username'       => $data[1] ?? "",
+                'computer_name'  => $data[2] ?? "",
+                'model'          => $data[3] ?? "",
+                'pc_grade'       => $data[4] ?? "",
+                'processor'      => $data[5] ?? "",
+                'ram'            => $data[6] ?? "",
+                'storage'        => $data[7] ?? "",
+                'ip_address'     => $data[8] ?? "",
+                'os'             => $data[9] ?? "",
+                'remarks'        => $data[10] ?? "",
+                'created_at'     => now(),
+                'updated_at'     => now(),
+            ]);
+        }
+
+        fclose($file);
+        $this->info('Computers imported successfully into p1adminbldg.');
+    }
+
+
+
+    // public function handle()
+    // {
+    //     $filePath = storage_path('app/p1bldga.csv');
+
+    //     if (!file_exists($filePath)) {
+    //         $this->error('File not found: ' . $filePath);
+    //         return;
+    //     }
+
+    //     $file = fopen($filePath, 'r');
+    //     $header = fgetcsv($file); // Skip header row
+
+    //     while (($row = fgetcsv($file, 1000, ',')) !== false) {
+    //         $data = array_map(fn($value) => trim($value) === "" ? "" : trim($value), $row);
+
+    //         DB::table('p1bldga')->insert([
+    //             'department'     => $data[0] ?? "",
+    //             'username'       => $data[1] ?? "",
+    //             'computer_name'  => $data[2] ?? "",
+    //             'model'          => $data[3] ?? "",
+    //             'pc_grade'       => $data[4] ?? "",
+    //             'processor'      => $data[5] ?? "",
+    //             'ram'            => $data[6] ?? "",
+    //             'storage'        => $data[7] ?? "",
+    //             'ip_address'     => $data[8] ?? "",
+    //             'os'             => $data[9] ?? "",
+    //             'remarks'        => $data[10] ?? "",
+    //             'created_at'     => now(),
+    //             'updated_at'     => now(),
+    //         ]);
+    //     }
+
+    //     fclose($file);
+    //     $this->info('Computers imported successfully into the databasee.');
+    // }
+//////////////////////////////////////////////////////////computerlist
+    // public function handle()
+    // {
+    //     $filePath = storage_path('app/computer-list.csv'); // Path to the CSV file
+
+    //     // Check if the CSV file exists
+    //     if (!file_exists($filePath)) {
+    //         $this->error("File not found: $filePath");
+    //         return;
+    //     }
+
+    //     // Open the CSV file for reading
+    //     $file = fopen($filePath, 'r');
+
+    //     if (!$file) {
+    //         $this->error("Failed to open the CSV file.");
+    //         return;
+    //     }
+
+    //     $insertedCount = 0;
+    //     $header = fgetcsv($file); // Skip header row
+
+    //     // Loop through the rows in the CSV file
+    //     while (($row = fgetcsv($file)) !== false) {
+    //         // Skip rows where all columns are empty
+    //         if (empty($row[0]) && empty($row[1]) && empty($row[2]) && empty($row[3]) && empty($row[4])) {
+    //             continue;
+    //         }
+
+    //         // Correctly map each field from CSV to database columns
+    //         $data = [
+    //             'superl_philippines_inc' => !empty($row[0]) ? $row[0] : null,  // First value from CSV (superl_philippines_inc)
+    //             'siglo_leatherware' => !empty($row[2]) ? $row[2] : null,      // Third value from CSV (siglo_leatherware)
+    //             'angeles_alliance_leatherware' => !empty($row[4]) ? $row[4] : null, // Fifth value from CSV (angeles_alliance_leatherware)
+    //             'created_at' => now(),
+    //             'updated_at' => now(),
+    //         ];
+
+    //         // Insert the data into the 'computers' table
+    //         DB::table('computers')->insert($data);
+    //         $insertedCount++;
+    //     }
+
+    //     // Close the CSV file
+    //     fclose($file);
+
+    //     // Output the result
+    //     $this->info("Successfully imported {$insertedCount} records into the 'computers' table.");
+    // }
+
+    // public function handle()
+    // {
+    //     $filePath = storage_path('app/p1adminbldg.csv');
+
+    //     if (!file_exists($filePath)) {
+    //         $this->error('File not found: ' . $filePath);
+    //         return;
+    //     }
+
+    //     $file = fopen($filePath, 'r');
+    //     $header = fgetcsv($file); // Skip header row
+
+    //     while (($row = fgetcsv($file, 1000, ',')) !== false) {
+    //         $data = array_map(fn($value) => trim($value) === "" ? "" : trim($value), $row);
+
+    //         DB::table('p1adminbldg')->insert([
+    //             'department'     => $data[0] ?? "",
+    //             'username'       => $data[1] ?? "",
+    //             'computer_name'  => $data[2] ?? "",
+    //             'model'          => $data[3] ?? "",
+    //             'pc_grade'       => $data[4] ?? "",
+    //             'processor'      => $data[5] ?? "",
+    //             'ram'            => $data[6] ?? "",
+    //             'storage'        => $data[7] ?? "",
+    //             'ip_address'     => $data[8] ?? "",
+    //             'os'             => $data[9] ?? "",
+    //             'remarks'        => $data[10] ?? "",
+    //             'created_at'     => now(),
+    //             'updated_at'     => now(),
+    //         ]);
+    //     }
+
+    //     fclose($file);
+    //     $this->info('Computers imported successfully into p1adminbldg.');
+    // }
+
+}

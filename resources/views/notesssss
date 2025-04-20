@@ -1,0 +1,59 @@
+     <table id="p1prodTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>DEPARTMENT</th>
+                    <th>USERNAME</th>
+                    <th>COMPUTER NAME</th>
+                    <th>MODEL</th>
+                    <th>PC GRADE</th>
+                    <th>PROCESSOR</th>
+                    <th>RAM</th>
+                    <th>STORAGE</th>
+                    <th>IP ADDRESS</th>
+                    <th>OS</th>
+                    <th>REMARKS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be loaded here by AJAX -->
+            </tbody>
+        </table>
+
+      </table>
+    </div>
+<!-- Script to load data using AJAX -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    // Function to load data using AJAX
+    function loadData() {
+        axios.get('/get-p1prod-data')  // Send GET request to the route
+            .then(function(response) {
+                let tableBody = document.querySelector('#p1prodTable tbody');
+                tableBody.innerHTML = ''; // Clear existing table rows
+                
+                // Loop through the data and create table rows dynamically
+                response.data.forEach(function(computer) {
+                    let row = `<tr>
+                        <td>${computer.department}</td>
+                        <td>${computer.username}</td>
+                        <td>${computer.computer_name}</td>
+                        <td>${computer.model}</td>
+                        <td>${computer.pc_grade}</td>
+                        <td>${computer.processor}</td>
+                        <td>${computer.ram}</td>
+                        <td>${computer.storage}</td>
+                        <td>${computer.ip_address}</td>
+                        <td>${computer.os}</td>
+                        <td>${computer.remarks}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row; // Append the new row to the table body
+                });
+            })
+            .catch(function(error) {
+                console.error('Error loading data:', error);
+            });
+    }
+
+    // Load data when the page is loaded
+    window.onload = loadData;
+</script>

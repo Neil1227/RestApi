@@ -1,0 +1,225 @@
+td {
+  position: relative;
+}
+
+.action-buttons {
+  position: absolute;
+  font-size: 13px;
+  right: 10px; /* Adjust the distance from the right side */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center the buttons */
+}
+
+.action-buttons button {
+  border: none; /* Remove border */
+  padding: 5px; /* Optional: Adjust padding for smaller buttons */
+  font-size: 12px; /* Make the button content smaller */
+  background: transparent; /* Ensure background is transparent */
+}
+
+.action-buttons button i {
+  color: rgba(0, 0, 0, 0.5); /* Make the icon color 50% opaque */
+  gap: 5px;
+  font-size: 14px; /* Adjust icon size */
+}
+
+.action-buttons button:hover {
+  background: transparent; /* Ensure no background change on hover */
+}
+
+.action-buttons-all {
+  position: absolute;
+  font-size: 13px;
+  left: 50%; 
+  top: 50%;
+  transform: translate(-50%, -50%); /* Center both horizontally & vertically */
+  display: flex; /* Align buttons in a row */
+  gap: 5px; /* Add spacing between buttons */
+}
+
+.action-buttons-all button {
+  border: none; 
+  padding: 5px;
+  font-size: 12px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.action-buttons-all button i {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+}
+
+.action-buttons-all button:hover {
+  background: transparent;
+}
+
+.action-btn-search {
+  position: absolute;
+  top: 82px;
+  right: 35%;
+  z-index: 1000; /* Ensure it sits on top of other elements */
+}
+
+.modal-body {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+#searchResults {
+  margin-top: 20px;
+}
+
+
+
+
+
+
+/* Style the list */
+ul.breadcrumb {
+    margin: 20px 10px 20px 50px;
+    
+    list-style: none;
+    background-color: transparent;
+  }
+  
+  /* Display list items side by side */
+  ul.breadcrumb li {
+ 
+    display: inline;
+    font-size: 18px;
+  }
+  
+  /* Add a slash symbol (/) before/behind each list item */
+  ul.breadcrumb li+li:before {
+    padding: 15px;
+    color: var(--gray-color);
+    content: "/\00a0";
+  }
+  
+  ul.breadcrumb li a {
+    text-decoration: none;
+    color: #333333;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
+  }
+  
+  ul.breadcrumb li a:hover,
+  ul.breadcrumb li a.active {
+    color: var(--btn-color);
+    transform: scale(1.2); /* Increase text size without shifting layout */
+    letter-spacing: 1px; /* Adds slight spacing for better readability */
+    text-decoration: none;
+    font-weight: bold;  /* Make it bold */
+  }
+  
+
+.tables {
+    margin: 0 50px; /* Adds 50px white space on left and right */
+}
+.tables table {
+  font-size: 13px; /* Adjust to desired size */
+}
+/* Remove extra spaces inside table cells */
+/* Apply compact spacing to multiple tables */
+.compact-table th, 
+.compact-table td {
+    margin: 0px;
+    padding: 4px 8px; /* Minimal padding */
+    vertical-align: middle; /* Ensures proper alignment */
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+.tables th,
+.tables td {
+  font-size: 13x; /* Ensure consistency */
+  padding: 0px; /* Adjust padding if needed */
+}
+
+.tables thead th {
+  font-size: 15px; /* Slightly larger for headers */
+  font-weight: bold; /* Make headers stand out */
+}
+.action-btn .btn {
+  box-shadow: none;
+  position: absolute;
+  top: 10%;
+  right: 3%;
+  width: 200px;
+  background-color: var(--btn-color);
+  border: none;
+}
+
+.action-btn .btn:focus,
+.action-btn .btn:active,
+.action-btn .btn:focus:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: var(--btn-color) !important;
+  border: none;
+}
+
+/* add the button to the bread crumbs******************************************************* */
+.dt-length .dt-input{
+    width: 50px !important;
+    padding: 0px; /* Add spacing around the dropdown */
+    font-size: 16px; /* Adjust text size */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between elements */
+}
+
+.dt-length label {
+    font-weight: bold; 
+    margin-right  : 10px;
+}
+.dt-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.dt-search label {
+  display: none !important; /* Hides the "Search:" label */
+}
+/* Style the DataTables search input */
+.dt-search .dt-input {
+  width: 300px; /* Adjust width */
+  padding: 8px 12px !important; /* More comfortable padding */
+  font-size: 14px !important; /* Adjust font size */
+  border: none !important; /* Remove all borders */
+  border-bottom: 1px solid #ccc !important; /* Light border at the bottom */
+  outline: none !important; /* Remove default focus outline */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+
+}
+div.dt-container .dt-input {
+  border: none; /* Remove all borders */
+  border-bottom: 1px solid #aaa; /* Apply bottom border */
+  border-radius: 0; /* Remove rounded corners */
+  padding: 5px;
+  background-color: transparent;
+  color: inherit;
+}
+
+/* Change background on focus */
+.dt-search .dt-input:focus {
+  color: var(--text-color) !important; /* White text */
+  border-color: var(--text-color) !important; /* Highlighted border */
+  box-shadow: 0 5px 10px rgba(167, 167, 167, 0.5) !important; /* Bottom glowing effect */
+}
+
+
+/* Optional: Center align search bar inside DataTables filter div */
+.dataTables_filter {
+  text-align: center !important;
+}
+
+/* Optional: Style the DataTables filter label */
+.dataTables_filter label {
+  font-size: 14px !important;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+

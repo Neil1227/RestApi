@@ -1,0 +1,5 @@
+      <td>${computer.superl_philippines_inc || '-'}</td>
+                        <td>${computer.siglo_leatherware || '-'}</td>
+                        <td>${computer.angeles_alliance_leatherware || '-'}</td>
+
+                        fetchComputerListData("/get-computer-data");

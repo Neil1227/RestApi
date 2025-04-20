@@ -1,0 +1,209 @@
+/* Sidebar Toggle Button */
+#sidebarToggle {
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    outline: none;
+}
+
+
+#sidebarToggle:focus,#closeSidebar:focus {
+    border: none;
+    background: none;
+    outline: none;
+    box-shadow: none;
+    transition: color 0.3s ease;
+}
+
+#closeSidebar{
+    background-color: none;
+}
+#sidebarToggle:hover {
+    color: white;
+}
+/* Sidebar List Animation */
+.sidebar ul {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  
+  /* When sidebar is expanded, animate the list in */
+  .sidebar-expanded ul {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+/* Sidebar */
+.sidebar {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(20, 20, 20, 0.7); /* Glassmorphic effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+    transition: width 0.4s ease-in-out;
+    padding-top: 60px;
+    z-index: 101;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Sidebar when expanded */
+.sidebar-expanded {
+    width: 280px;
+}
+
+/* Sidebar List Styling */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-white-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar ul li a i {
+    font-size: 20px;
+}
+
+/* Hover effect */
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+/* Active link style */
+.sidebar ul li a.active {
+    color: white;
+    font-weight: bold;
+}
+
+/* Sidebar Close Button */
+/* Sidebar Close Button */
+.close-btn {
+    background: none; /* No background */
+    border: none;
+    color: var(--text-white-color);
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effect */
+.close-btn:hover {
+    border: none;
+    transform: scale(1.1); /* Slightly bigger */
+    opacity: 0.7; /* Soft fade effect */
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+    .sidebar-expanded {
+        width: 240px;
+    }
+}
+
+
+/* Main Content (No shifting of content) */
+.main-content {
+    padding: 10px;
+    transition: none; /* No transition on main content */
+}
+
+/* Navbar */
+.navbar {
+    transition: none; 
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0; /* Keep sidebar hidden initially */
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        left: 0;
+    }
+
+    .sidebar-expanded {
+        width: 80%; /* Sidebar takes 80% of the screen width on smaller screens */
+    }
+
+    /* Overlay should cover the rest of the screen */
+    .overlay {
+        display: none;
+    }
+
+    .overlay-active {
+        display: block;
+    }
+}
+/* Dark Transparent Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+    z-index: 100; /* Ensure overlay is just below the sidebar */
+}
+
+/* Show overlay when sidebar is expanded */
+.overlay-active {
+    display: block;
+}
+
+.aside-dropbar{
+    position: relative;
+}
+
+.chevron-wrapper {
+   position: absolute;
+   top: 0;
+   right: 10%;
+}
+
+/* Hide the dropdown menu by default */
+.dropdown-menu {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the dropdown menu when visible */
+.dropdown-menu.active {
+    display: block;
+    color: yellowgreen;
+}
+
+.chevron-wrapper {
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+:root {
+    --dark-color:#212529;
+    --gray-color: #c2c2c2;
+    --aside-color: #2c3e50;
+    --aside-hover: #34495e;
+    --text-color: #000000;
+    --form-color: #E0E0E0;
+    --btn-color: #B71C1C;
+    --text-white-color: #fff;
+    --btn-hover: #f03030;
+    --p1-color: #E64A19;
+    --p2-color: #1565C0;
+    --p3-color: #512DA8;
+    --p5-color: #00796B;
+    --p6-color: #FFA000;
+
+    --total-card4-color: #388E3C; /* Deep Green */
+    --total-card3-color: #F57C00; /* Warm Orange */
+    --total-card2-color: #C2185B; /* Deep Pink */
+    --total-card1-color: #0097A7; /* Vibrant Cyan */
+    --warning-color: #B71C1C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+body {
+    background: var(--form-color);
+    font-family: 'Poppins', sans-serif;
+    height: 80dvh;
+}
+
+h1, h2, h3, h4 , h5, h6, p{
+    font-family: 'Poppins', sans-serif;
+}
+
+hr {
+    border: 1px solid var(--gray-color);
+    margin: 10px 0;
+}

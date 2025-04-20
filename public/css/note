@@ -1,0 +1,243 @@
+    <div class="tables mt-4">
+      <table id="myTable" class="table table-bordered table-striped">
+          <thead class="thead-dark">
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <th>USERNAME</th>
+                  <th>COMPUTER NAME</th>
+                  <th>MODEL</th>
+                  <th>PC GRADE</th>
+                  <th>PROCESSOR</th>
+                  <th>RAM</th>
+                  <th>STORAGE</th>
+                  <th>IP ADDRESS</th>
+                  <th>OS</th>
+                  <th>REMARKS</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+              <tr>
+                  <th>DEPARTMENT</th>										
+                  <td>USERNAME</td>
+                  <td>COMPUTER NAME</td>
+                  <td>MODEL</td>
+                  <td>PC GRADE</td>
+                  <td>PROCESSOR</td>
+                  <td>RAM</td>
+                  <td>STORAGE</td>
+                  <td>IP ADDRESS</td>
+                  <td>OS</td>
+                  <td>REMARKS</td>
+                  <td>
+                      <button class="btn btn-primary btn-md"><i class="fas fa-pencil" aria-hidden="true"></i></button>
+                      <button class="btn btn-danger btn-md"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
