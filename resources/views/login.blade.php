@@ -38,7 +38,7 @@
                 </span>
             @enderror
         </div>
-        <button type="submit" class="btn btn-login btn-block">LOGIN</button>
+        <button type="submit" class="btn btn-login btn-block">Sign In</button>
     </form>
 </div>
 
