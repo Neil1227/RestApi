@@ -14,9 +14,9 @@ use App\Http\Controllers\DeleteController;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\IndividualDeleteController;
+use App\Http\Controllers\DeleteIndividualController;
 
-Route::post('/delete-individual', [IndividualDeleteController::class, 'delete']);
+Route::post('/delete-individual', [DeleteIndividualController::class, 'deleteIndividual']);
 
 
 

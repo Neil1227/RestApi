@@ -1,4 +1,3 @@
-// ✅ fetch-and-delete.js
 
 document.addEventListener("DOMContentLoaded", function () {
     // ✅ Table configuration: tableId -> { apiUrl, dbTable }
@@ -94,63 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
-    // ✅ Attach delete buttons logic
-    function attachDeleteListeners(tableId, apiUrl, dbTable) {
-        const table = document.querySelector(`#${tableId}`);
-        const tableBody = table.querySelector("tbody");
-
-        tableBody.querySelectorAll(".btn-danger").forEach(button => {
-            button.addEventListener("click", function () {
-                const deleteId = this.getAttribute("data-id");
-
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "This action cannot be undone.",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#d33",
-                    cancelButtonColor: "#3085d6",
-                    confirmButtonText: "Yes, delete it!"
-                }).then(result => {
-                    if (result.isConfirmed) {
-                        axios.post("/delete-individual", {
-                            id: deleteId,
-                            table: dbTable
-                        })
-                        .then(response => {
-                            if (response.data.success) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Deleted!',
-                                    text: 'The record has been deleted.',
-                                    timer: 1500,
-                                    showConfirmButton: false
-                                }).then(() => {
-                                    fetchData(tableId, apiUrl, dbTable);
-                                });
-                            } else {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Failed!',
-                                    text: response.data.message || 'Something went wrong.'
-                                });
-                            }
-                        })
-                        .catch(error => {
-                            console.error("Delete error:", error);
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error',
-                                text: 'An error occurred while deleting.'
-                            });
-                        });
-                    }
-                });
-            });
-        });
-    }
-
     // ✅ Initialize all tables
     for (const [tableId, { apiUrl, dbTable }] of Object.entries(tables)) {
         fetchData(tableId, apiUrl, dbTable);
