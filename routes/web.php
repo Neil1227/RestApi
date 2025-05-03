@@ -9,14 +9,14 @@ use App\Models\Admin;
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\P1BldgAController;
 use App\Http\Controllers\P1AdminBldgController;
-use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\InventoryController;           
 use App\Http\Controllers\DeleteController;
-
+                
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DeleteIndividualController;
+use App\Http\Controllers\IndividualDeleteController;
 
-Route::post('/delete-individual', [DeleteIndividualController::class, 'deleteIndividual']);
+Route::delete('/delete/{table}/{id}', [IndividualDeleteController::class, 'deleteRecord']);
 
 
 

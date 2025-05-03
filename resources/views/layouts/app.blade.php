@@ -57,7 +57,7 @@
 <script src="{{ asset('js/recordsearch.js') }}"></script> 
 <script src="{{ asset('js/insertrecord.js') }}"></script> 
 <script src="{{ asset('js/deleterecord.js') }}"></script>
-
+<script src="{{ asset('js/deleterecordpage.js') }}"></script>
 
 <script src="{{ asset('js/pie.js') }}"></script> 
 <script src="{{ asset('js/breadcrumbs.js') }}"></script> 

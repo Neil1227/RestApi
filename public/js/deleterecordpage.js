@@ -1,64 +1,51 @@
-import { fetchData } from './fetch-data.js';
+document.addEventListener("DOMContentLoaded", function () {
+    attachDeleteListenersToAllTables();
+});
 
-function attachDeleteListeners(tableId, apiUrl, dbTable) {
-    const deleteTable = document.querySelector(`#${tableId}`);
-    const deleteTableBody = deleteTable.querySelector("tbody");
+function attachDeleteListenersToAllTables() {
+    document.body.addEventListener("click", function (event) {
+        if (event.target.closest(".btn-danger")) {
+            const button = event.target.closest(".btn-danger");
+            const recordId = button.getAttribute("data-id");
+            const tableName = button.getAttribute("data-table");
 
-    deleteTableBody.querySelectorAll(".btn-danger").forEach(deleteBtn => {
-        deleteBtn.addEventListener("click", function () {
-            const recordIdToDelete = this.getAttribute("data-id");
-            const sourceTableName = this.getAttribute("data-table");
-            console.log("Attempting delete:", { id: recordId, table: tableSource });
-//_____________________________________________________________create a new /combine controller.
+            if (!recordId || !tableName) return;
+
             Swal.fire({
                 title: "Are you sure?",
-                text: "This action cannot be undone.",
+                text: "You won't be able to revert this!",
                 icon: "warning",
                 showCancelButton: true,
-                confirmButtonColor: "#d33",
-                cancelButtonColor: "#3085d6",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
                 confirmButtonText: "Yes, delete it!"
-            }).then(result => {
+            }).then((result) => {
                 if (result.isConfirmed) {
-                    // Debug log
-                    console.log("Deleting ID:", recordIdToDelete, "from table:", sourceTableName);
-
-                    axios.post("/delete-individual", {
-                        id: recordIdToDelete,
-                        table: sourceTableName
-                    })
-                    .then(response => {
-                        if (response.data.success === true) {
+                    axios.delete(`/delete/${tableName}/${recordId}`)
+                        .then((response) => {
                             Swal.fire({
-                                icon: 'success',
-                                title: 'Deleted!',
-                                text: 'The record has been deleted.',
+                                title: "Deleted!",
+                                text: "Record has been deleted.",
+                                icon: "success",
                                 timer: 1500,
                                 showConfirmButton: false
-                            }).then(() => {
-                                fetchData(tableId, apiUrl, dbTable); // Refresh current table only
                             });
-                        } else {
-                            console.error("Delete failed response:", response.data);
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Failed!',
-                                text: response.data.message || 'Something went wrong.'
-                            });
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Axios delete error:", error);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'An error occurred while deleting.'
+
+                            // Optional: Refresh the specific table
+                            const tableElement = document.querySelector(`[data-table-id="${tableName}"]`);
+                            if (tableElement) {
+                                const apiUrl = tableElement.getAttribute("data-api-url");
+                                if (apiUrl) {
+                                    fetchData(tableElement.id, apiUrl, tableName); // assuming fetchData is global
+                                }
+                            }
+                        })
+                        .catch((error) => {
+                            Swal.fire("Error!", "Something went wrong.", "error");
+                            console.error("Delete error:", error);
                         });
-                    });
                 }
             });
-        });
+        }
     });
 }
-
-export { attachDeleteListeners };

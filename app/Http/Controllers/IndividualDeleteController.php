@@ -8,23 +8,37 @@ use Illuminate\Support\Facades\Schema;
 
 class DeleteIndividualController extends Controller
 {
-    public function delete(Request $request)
-{
-    $id = $request->input('id');
-    $table = $request->input('table');
-
-    if (!Schema::hasTable($table)) {
-        return response()->json(['success' => false, 'message' => 'Table not found.']);
-    }
-
-    $deleted = DB::table($table)->where('id', $id)->delete();
-
-    if ($deleted) {
+    public function deleteRecord($table, $id)
+    {
+        $allowedTables = ['p1prod', 'p1adminbldg', 'p1bldga', 'p1whbldg', 'p2', 'p3', 'p5', 'p6'];
+    
+        if (!in_array($table, $allowedTables)) {
+            return response()->json(['error' => 'Invalid table'], 400);
+        }
+    
+        $modelMap = [
+            'p1prod' => \App\Models\P1Prod::class,
+            'p1adminbldg' => \App\Models\P1AdminBldg::class,
+            'p1bldga' => \App\Models\P1BldgA::class,
+            'p1whbldg' => \App\Models\P1WhBldg::class,
+            'p2' => \App\Models\P2::class,
+            'p3' => \App\Models\P3::class,
+            'p5' => \App\Models\P5::class,
+            'p6' => \App\Models\P6::class
+        ];
+    
+        $model = $modelMap[$table];
+        $record = $model::find($id);
+    
+        if (!$record) {
+            return response()->json(['error' => 'Record not found'], 404);
+        }
+    
+        $record->delete();
+    
         return response()->json(['success' => true]);
-    } else {
-        return response()->json(['success' => false, 'message' => 'No matching record found.']);
     }
-}
+    
 
 
 }
