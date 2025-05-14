@@ -11,12 +11,13 @@ use App\Http\Controllers\P1BldgAController;
 use App\Http\Controllers\P1AdminBldgController;
 use App\Http\Controllers\InventoryController;           
 use App\Http\Controllers\DeleteController;
+use App\Http\Controllers\EditController;
                 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\IndividualDeleteController;
 
-Route::delete('/delete/{table}/{id}', [IndividualDeleteController::class, 'deleteRecord']);
+
+
 
 
 
@@ -40,6 +41,7 @@ Route::get('/get-all-computers', function () {
 
 
 Route::post('/insert-record', [InventoryController::class, 'insertRecord']);
+Route::post('/update-computer', [EditController::class, 'update']);
 Route::post('/delete-computer', [DeleteController::class, 'delete'])->name('delete.computer');
 
 

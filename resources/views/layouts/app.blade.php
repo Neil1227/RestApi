@@ -18,6 +18,8 @@
   <!-- *********************************routes for breadcrumbs*********************************** -->
   @include('layouts.navbar') <!-- Include the Navbar -->
   @include ('layouts.add-modal')
+  @include ('layouts.edit-modal')
+  
   @include ('layouts.delete-modal')
 
   @if (!View::hasSection('dashboard') && !View::hasSection('computer-list'))
@@ -57,16 +59,23 @@
 <script src="{{ asset('js/recordsearch.js') }}"></script> 
 <script src="{{ asset('js/insertrecord.js') }}"></script> 
 <script src="{{ asset('js/deleterecord.js') }}"></script>
-<script src="{{ asset('js/deleterecordpage.js') }}"></script>
+<script src="{{ asset('js/edit-populate.js') }}"></script>
+<script src="{{ asset('js/edit-submit.js') }}"></script>
+
 
 <script src="{{ asset('js/pie.js') }}"></script> 
 <script src="{{ asset('js/breadcrumbs.js') }}"></script> 
 <script src="{{ asset('js/sidebar.js') }}"></script> 
 <!--/-->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+</script>
 
   </body>
   

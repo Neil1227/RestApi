@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     // ✅ Table configuration: tableId -> { apiUrl, dbTable }
     let tables = {
@@ -51,14 +52,15 @@ document.addEventListener("DOMContentLoaded", function () {
                             <td>
                                 <span class="action-buttons-all">
                                     <button class="btn btn-primary btn-sm"><i class="fas fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-sm" data-id="${computer.id}" data-table="${dbTable}">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                        <button class="btn btn-danger btn-sm delete-btn" data-id="{{ $computer->id }}">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                 </span>
                             </td>
                         </tr>`;
                     tableBody.insertAdjacentHTML("beforeend", row);
                 });
+                
 
                 reinitializeDataTable(tableId);
                 attachDeleteListeners(tableId, apiUrl, dbTable); // 🔁 add listeners
@@ -67,9 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error(`Error loading data for ${tableId}:`, error);
             });
     }
-
-    // 👇 MAKE fetchData available globally
-    window.fetchData = fetchData;
 
     // ✅ Reinitialize DataTable
     function reinitializeDataTable(tableId) {
@@ -93,9 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
     // ✅ Initialize all tables
     for (const [tableId, { apiUrl, dbTable }] of Object.entries(tables)) {
         fetchData(tableId, apiUrl, dbTable);
     }
+
+    
 });

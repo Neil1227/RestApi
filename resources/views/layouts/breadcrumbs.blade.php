@@ -3,7 +3,7 @@
         <ul class="breadcrumb d-flex align-items-center mb-0">
 
             <!-- <li><a href="{{ route('computer-list') }}">Computer List</a></li> -->
-            <li><a href="{{ route('all-list') }}">Search All</a></li>
+            <li><a href="{{ route('all-list') }}"> All</a></li>
             <li><a href="{{ route('p1adminbldg') }}">P1 Admin Bldg</a></li>
             <li><a href="{{ route('p1bldga') }}">P1 Bldg A</a></li>
             <li><a href="{{ route('p1whBldg') }}">P1 WH Bldg</a></li>

@@ -18,39 +18,37 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 // Build table rows with a hidden date column (for sorting)
-                allData.forEach(computer => {
-                    let timestamp = computer.created_at || computer.updated_at || '';
-                    console.log("source_table:", computer.source_table);
-            let row = `<tr data-id="${computer.id}" data-table="${computer.source_table}">
+                allData.forEach(pc => {
+                    let timestamp = pc.created_at || pc.updated_at || '';
+                    console.log("source_table:", pc.source_table);
+            let row = `<tr data-id="${pc.id}" data-table="${pc.source_table}">
                         <td style="display:none">${timestamp}</td> <!-- Hidden date column -->
-                        <td style="display:none">${computer.id}</td>
-                        <td>${computer.department || '-'}</td>
-                        <td>${computer.username || '-'}</td>
-                        <td>${computer.computer_name || '-'}</td>
-                        <td>${computer.model || '-'}</td>
-                        <td>${computer.pc_grade || '-'}</td>
-                        <td>${computer.processor || '-'}</td>
-                        <td>${computer.ram || '-'}</td>
-                        <td>${computer.storage || '-'}</td>
-                        <td>${computer.ip_address || '-'}</td>
-                        <td>${computer.os || '-'}</td>
-                        <td>${computer.remarks || '-'}</td>
+                        <td style="display:none">${pc.id}</td>
+                        <td>${pc.department || '-'}</td>
+                        <td>${pc.username || '-'}</td>
+                        <td>${pc.computer_name || '-'}</td>
+                        <td>${pc.model || '-'}</td>
+                        <td>${pc.pc_grade || '-'}</td>
+                        <td>${pc.processor || '-'}</td>
+                        <td>${pc.ram || '-'}</td>
+                        <td>${pc.storage || '-'}</td>
+                        <td>${pc.ip_address || '-'}</td>
+                        <td>${pc.os || '-'}</td>
+                        <td>${pc.remarks || '-'}</td>
                         <td>
                             <span class="action-buttons-all">
-                                <button class="btn btn-primary btn-sm open" data-table="${computer.source_table}">
+                                <button class="btn btn-primary btn-sm open" data-table="${pc.source_table}">
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                 </button>
                                 
-                                <button class="btn btn-primary btn-sm">
+                                <button class="btn btn-primary btn-sm btn-edit">
                                     <i class="fas fa-pencil"></i>
                                 </button>
+
                                 
-                                <button class="btn btn-danger btn-sm" data-id="${computer.id}" data-table="${computer.source_table}">
+                                <button class="btn btn-delete-all btn-danger btn-sm" data-id="${pc.id}" data-table="${pc.source_table}">
                                     <i class="fas fa-trash"></i>
-                                    
                                 </button>
-
-
                             </span>
                         </td>
                     </tr>`;

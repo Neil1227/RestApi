@@ -11,4 +11,6 @@ class P1AdminBldgController extends Controller
         $computers = P1AdminBldg::all(); // Fetch all data from the p1adminbldg table
         return view('p1adminbldg', ['computers' => $computers]); // Pass data to the view
     }
+
+
 }

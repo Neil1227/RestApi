@@ -1,5 +1,5 @@
 document.getElementById("confirmDeleteBtn").addEventListener("click", () => {
-    axios.post("/delete-computer", {
+    axios.post("/delete", {
         id: deleteId,
         table: deleteTable
     })
@@ -10,9 +10,11 @@ document.getElementById("confirmDeleteBtn").addEventListener("click", () => {
                 title: 'Deleted!',
                 text: 'The record has been successfully deleted.',
                 timer: 1500,
-                showConfirmButton: false
-            }).then(() => {
-                window.location.reload(); // Only reload after the alert finishes
+                showConfirmButton: false,
+                didClose: () => {
+                    // Reload page once the alert closes
+                    location.href = location.href;
+                }
             });
         } else {
             Swal.fire({
