@@ -12,15 +12,7 @@ class ComputerController extends Controller
         $computers = DB::table('computers')->get(); // Fetch all records
         return view('computer-list', compact('computers')); // Pass data to the view
     }
-    public function update(Request $request)
-{
-    $model = $this->getModelFromTable($request->table);
-    $record = $model::findOrFail($request->id);
 
-    $record->update($request->except(['id', 'table']));
-
-    return response()->json(['message' => 'Record updated successfully']);
-}
 
 private function getModelFromTable($table)
 {

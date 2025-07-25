@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <td>${computer.remarks || '-'}</td>
                             <td>
                                 <span class="action-buttons-all">
-                                    <button class="btn btn-primary btn-sm"><i class="fas fa-pencil"></i></button>
+                                    <button class="btn btn-edit btn-primary btn-sm"><i class="fas fa-pencil"></i></button>
                                         <button class="btn btn-danger btn-sm delete-btn" data-id="{{ $computer->id }}">
                                             <i class="fas fa-trash"></i>
                                         </button>

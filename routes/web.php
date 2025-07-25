@@ -9,17 +9,12 @@ use App\Models\Admin;
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\P1BldgAController;
 use App\Http\Controllers\P1AdminBldgController;
-use App\Http\Controllers\InventoryController;           
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\EditController;
-                
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\DashboardController;
-
-
-
-
-
 
 Route::get('/get-all-computers', function () {
     $tables = ['p1prod', 'p1adminbldg', 'p1bldga', 'p1whbldg', 'p2', 'p3', 'p5', 'p6'];
@@ -39,12 +34,9 @@ Route::get('/get-all-computers', function () {
 });
 
 
-
 Route::post('/insert-record', [InventoryController::class, 'insertRecord']);
-Route::post('/update-computer', [EditController::class, 'update']);
+Route::post('/update-computer', [EditController::class, 'updateOrTransfer']);
 Route::post('/delete-computer', [DeleteController::class, 'delete'])->name('delete.computer');
-
-
 // In web.php
 Route::get('/get-computer-data', [ComputerController::class, 'getComputerData']);
 Route::get('/computer-list', [ComputerController::class, 'index'])->name('computer-list');
@@ -175,4 +167,3 @@ Route::get('/logout', function () {
 })->name('logout');
 
 // ***********************************************************************************************************
-

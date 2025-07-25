@@ -10,18 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
 
-                // Sort data by created_at or updated_at (most recent first)
                 let allData = response.data.sort((a, b) => {
-                    let aDate = new Date(a.created_at || a.updated_at);
-                    let bDate = new Date(b.created_at || b.updated_at);
-                    return bDate - aDate;
+                    if (a.updated_at && b.updated_at) {
+                        return new Date(b.updated_at) - new Date(a.updated_at);
+                    }
+                    if (a.updated_at && !b.updated_at) return -1;
+                    if (!a.updated_at && b.updated_at) return 1;
+                    return new Date(b.created_at) - new Date(a.created_at);
                 });
+
 
                 // Build table rows with a hidden date column (for sorting)
                 allData.forEach(pc => {
-                    let timestamp = pc.created_at || pc.updated_at || '';
+                    let timestamp = pc.updated_at || pc.created_at || '';
                     console.log("source_table:", pc.source_table);
-            let row = `<tr data-id="${pc.id}" data-table="${pc.source_table}">
+                    let row = `<tr data-id="${pc.id}" data-table="${pc.source_table}">
                         <td style="display:none">${timestamp}</td> <!-- Hidden date column -->
                         <td style="display:none">${pc.id}</td>
                         <td>${pc.department || '-'}</td>
@@ -34,14 +37,37 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${pc.storage || '-'}</td>
                         <td>${pc.ip_address || '-'}</td>
                         <td>${pc.os || '-'}</td>
-                        <td>${pc.remarks || '-'}</td>
+                        <td>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="remarks-text">${pc.remarks || '-'}</span>
+                                ${
+                                pc.source_table === 'p1adminbldg'
+                                    ? '<span class="badge ms-2" style="background-color: var(--p1-color); color: white;">Admin Bldg</span>'
+                                    : pc.source_table === 'p1prod'
+                                    ? '<span class="badge ms-2" style="background-color: var(--p1-color); color: white;">P1 Prod</span>'
+                                    : pc.source_table === 'p1bldga'
+                                    ? '<span class="badge ms-2" style="background-color: var(--p1-color); color: white;">P1 Bldg A</span>'
+                                    : pc.source_table === 'p1whbldg'
+                                    ? '<span class="badge ms-2" style="background-color: var(--p1-color); color: white;">P1 WH Bldg</span>'
+                                    : pc.source_table === 'p2'
+                                    ? '<span class="badge ms-2" style="background-color: var(--p2-color); color: white;">P2 Prod</span>'
+                                    : pc.source_table === 'p3'
+                                    ? '<span class="badge ms-2" style="background-color: var(--p3-color); color: white;">P3 Prod</span>'
+                                    : pc.source_table === 'p5'
+                                    ? '<span class="badge ms-2" style="background-color: var(--p5-color); color: white;">P5 Prod</span>'
+                                    : pc.source_table === 'p6'
+                                    ? '<span class="badge ms-2" style="background-color: var(--p6-color); color: white;">P6 Prod</span>'
+                                    : '<span class="badge bg-secondary ms-2">Other</span>'
+                                }
+                            </div>
+                        </td>
                         <td>
                             <span class="action-buttons-all">
                                 <button class="btn btn-primary btn-sm open" data-table="${pc.source_table}">
                                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                                 </button>
                                 
-                                <button class="btn btn-primary btn-sm btn-edit">
+                                <button class="btn btn-update btn-primary btn-sm btn-edit">
                                     <i class="fas fa-pencil"></i>
                                 </button>
 

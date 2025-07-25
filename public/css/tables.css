@@ -70,11 +70,6 @@ td {
   margin-top: 20px;
 }
 
-
-
-
-
-
 /* Style the list */
 ul.breadcrumb {
     margin: 20px 10px 20px 50px;
@@ -140,23 +135,57 @@ ul.breadcrumb {
   font-size: 15px; /* Slightly larger for headers */
   font-weight: bold; /* Make headers stand out */
 }
-.action-btn .btn {
-  box-shadow: none;
+
+/*************************************************************** Action Button Container */
+.action-btn {
+  z-index: 2;
   position: absolute;
-  top: 10%;
-  right: 3%;
-  width: 200px;
-  background-color: var(--btn-color);
+  top: 21dvh;
+  right: 20%;
   border: none;
 }
 
+/* Generate Button Styles */
+.generate-modal {
+  background-color: var(--text-white-color);
+  color: var(--btn-color);
+  border: 1px solid var(--btn-color);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.generate-modal:hover {
+  background-color: var(--btn-color);
+  color: var(--text-white-color);
+}
+
+/* Add Button Styles */
+.btn-add {
+  background-color: var(--btn-color);
+  color: var(--text-white-color);
+  border: none;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-add:hover {
+  background-color: var(--text-white-color);
+  color: var(--btn-color);
+
+}
+
+/* Remove focus/active shadows from buttons in container */
+.generate-modal:focus,    
+.generate-modal:active,
+.generate-modal:focus:active,
 .action-btn .btn:focus,
 .action-btn .btn:active,
 .action-btn .btn:focus:active {
   outline: none !important;
   box-shadow: none !important;
-  background-color: var(--btn-color) !important;
-  border: none;
+
 }
 
 /* add the button to the bread crumbs******************************************************* */

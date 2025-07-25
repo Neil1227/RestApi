@@ -50,7 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
               icon: 'success',
               title: 'Success!',
               text: 'Record inserted successfully!',
-              confirmButtonColor: '#3085d6'
+              timer: 2000,
+              showConfirmButton: false,
+              timerProgressBar: true
+
             }).then(() => {
               // Redirect based on selectedTable
               window.location.href = `/${selectedTable}`; // Assuming your route is like "/p1", "/p2", etc.

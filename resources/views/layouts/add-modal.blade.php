@@ -81,7 +81,7 @@
 
 
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="submit" class="btn"style="color:white;background-color: #B71C1C;">Save Record <i class="bi bi-floppy"></i></button>
         </div>
       </form>
     </div>

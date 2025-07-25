@@ -1,10 +1,12 @@
 document.addEventListener("click", function (e) {
     if (e.target.closest(".btn-edit")) {
+        
         const row = e.target.closest("tr");
 
         const data = {
             id: row.getAttribute("data-id"),
             table: row.getAttribute("data-table"),
+            
             department: row.children[0].textContent.trim(),
             username: row.children[1].textContent.trim(),
             computer_name: row.children[2].textContent.trim(),
@@ -15,12 +17,14 @@ document.addEventListener("click", function (e) {
             storage: row.children[7].textContent.trim(),
             ip_address: row.children[8].textContent.trim(),
             os: row.children[9].textContent.trim(),
-            remarks: row.children[10].textContent.trim(),
+            remarks: row.children[10].querySelector("span.remarks-text")?.innerText.trim() || '-',
+
         };
 
         // Populate modal form fields
         document.getElementById("editId").value = data.id;
         document.getElementById("editTable").value = data.table;
+        document.getElementById("factory-edit").value = data.table;
         document.getElementById("editDepartment").value = data.department;
         document.getElementById("editUsername").value = data.username;
         document.getElementById("editComputerName").value = data.computer_name;
@@ -37,4 +41,5 @@ document.addEventListener("click", function (e) {
         const editModal = new bootstrap.Modal(document.getElementById("editComputerModal"));
         editModal.show();
     }
+
 });

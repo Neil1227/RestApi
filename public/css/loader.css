@@ -1,0 +1,47 @@
+ .page-loader {
+    padding: 20px;
+    margin: 100px 50px 0 50px;
+  }
+
+  .shimmer {
+    position: relative;
+    background: #b6b6b6;
+    background-image: linear-gradient(
+      to right,
+      #b6b6b6 0%,
+      #c6c6c6 40%,
+      #b6b6b6 80%,
+      #b6b6b6 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 6px;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .navbar-loader {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .table-header-loader {
+    height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .row-loader {
+    height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+  }

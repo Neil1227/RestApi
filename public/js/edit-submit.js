@@ -1,40 +1,68 @@
 document.getElementById("editComputerForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
+    const form = e.target;
+    const formData = new FormData(form);
 
-    console.log("Sending data:", data); // Debugging
+    // Debug log for form data
+    console.log("Form Data Submitted:", Object.fromEntries(formData.entries()));
 
-    axios.post("/update-computer", data)
-        .then(res => {
-            console.log("Server response:", res.data);
+    axios.post("/update-computer", formData)
+        .then(response => {
+            const res = response.data;
 
-            if (res.data.success === true || res.data.success === "true") {
+            console.log("Axios Response:", response); // Debug output
+
+            if (res && res.success) {
                 Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: res.data.message || "Computer record updated successfully.",
+                    icon: 'success',
+                    title: 'Updated Successfully!',
+                    text: res.message || 'The record has been updated.',
                     timer: 2000,
-                    showConfirmButton: false
+                    showConfirmButton: false,
+                    timerProgressBar: true
+                }).then(() => {
+                    window.location.reload();
                 });
-
-                $('#editComputerModal').modal('hide');
-                fetchAllComputersData();
-            } else {
+            }
+            else {
                 Swal.fire({
-                    icon: "error",
-                    title: "Failed",
-                    text: res.data.message || "Update failed. Please try again."
+                    icon: 'error',
+                    title: 'Update Failed',
+                    text: res?.message || 'Unexpected response from the server.'
                 });
             }
         })
-        .catch(err => {
-            console.error("Update failed:", err.response?.data || err.message || err);
+        .catch(error => {
+            const message =
+                error?.response?.data?.message ||
+                error?.message ||
+                'An unexpected error occurred during update.';
+
+            console.error("Axios Error:", error); // Debug output
+
             Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: err.response?.data?.message || "An error occurred while updating the record."
+                icon: 'error',
+                title: 'Error',
+                text: message
             });
         });
+});
+document.getElementById('factory-edit').addEventListener('change', function () {
+    const newFactory = this.value;
+    const factoryLabel = this.options[this.selectedIndex].text;
+
+Swal.fire({
+    title: 'Move record?',
+    text: 'Are you sure you want to move this record to "' + factoryLabel + '"?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, move it!'
+}).then((result) => {
+    if (!result.isConfirmed) {
+        // Cancelled, revert the dropdown
+        this.value = document.getElementById('editTable').value;
+    }
+});
+
 });
